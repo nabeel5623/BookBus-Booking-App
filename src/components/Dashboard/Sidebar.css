@@ -1,0 +1,269 @@
+/* src/components/Dashboard/Sidebar.css */
+
+.sidebar {
+  position: fixed;
+  left: -260px;
+  top: 0;
+  height: 100vh;
+  width: 260px;
+  background: var(--primary-dark);
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+/* Add overlay for mobile */
+.sidebar::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.sidebar.open::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (min-width: 769px) {
+  .sidebar {
+    left: 0;
+  }
+  
+  .sidebar:not(.open) {
+    left: -260px;
+  }
+  
+  .sidebar::after {
+    display: none;
+  }
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: #16213e;
+}
+
+.sidebar-header h2 {
+  color: #e94560;
+  font-size: 0.9rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Menu Container */
+.sidebar-menu {
+  padding: 1rem 0;
+  list-style: none;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  padding: 0.3rem 1rem;
+}
+
+/* Menu Items */
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1rem 1.2rem;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  background: #16213e;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 5px;
+}
+
+.sidebar-menu a svg {
+  font-size: 1.3rem;
+  color: #e94560;
+  transition: all 0.3s ease;
+}
+
+.sidebar-menu a:hover {
+  background: #1f2947;
+  color: #ffffff;
+  transform: translateX(5px);
+  border-color: #e94560;
+}
+
+.sidebar-menu a:hover svg {
+  color: #ff6b81;
+}
+
+/* Active Menu Item */
+.sidebar-menu a.active {
+  background: #1f2947;
+  color: #ffffff;
+  border-left: 3px solid #e94560;
+  border-color: #e94560;
+}
+
+.sidebar-menu a.active svg {
+  color: #ff6b81;
+}
+
+/* Menu Section */
+.menu-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.menu-section-title {
+  padding: 0 1.5rem;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* User Profile Section */
+.sidebar-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: #16213e;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.8rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: #1a1a2e;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.user-profile:hover {
+  background: #1f2947;
+  border-color: #e94560;
+  cursor: pointer;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #e94560, #ff6b81);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.user-role {
+  color: #9ca3af;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+/* Hover effect for user profile */
+.user-profile:hover .user-name {
+  color: #ff6b81;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    top: 65px;
+    height: calc(100vh - 65px);
+    width: 280px;
+  }
+}
+
+/* Custom Scrollbar */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #e94560;
+  border-radius: 6px;
+  border: 2px solid #1a1a2e;
+}
+
+/* Add to Sidebar.css */
+.logout-section {
+  padding: 1rem;
+  border-top: 1px solid var(--border-dark);
+  margin-top: 1rem;
+}
+
+.logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-dark);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: var(--hover-bg);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.user-info-collapsed {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+/* Make items more clickable */
+.menu-item {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Add active state feedback */
+.menu-item:active {
+  transform: scale(0.98);
+}
