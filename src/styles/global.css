@@ -1,0 +1,48 @@
+/* src/styles/global.css */
+/* Light Mode Colors */
+:root {
+  --primary-bg: #f8f9fa;
+  --secondary-bg: #ffffff;
+  --primary-text: #1a1a2e;
+  --secondary-text: #4a5568;
+  --accent-color: #e94560;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode Colors */
+[data-theme='dark'] {
+  --primary-bg: #1a1a2e;
+  --secondary-bg: #16213e;
+  --primary-text: #ffffff;
+  --secondary-text: #a0aec0;
+  --accent-color: #e94560;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Update component styles to use CSS variables */
+.dashboard {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+}
+
+.navbar {
+  background-color: var(--secondary-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar {
+  background-color: var(--secondary-bg);
+  border-right: 1px solid var(--border-color);
+}
+
+/* Add more component-specific theme styles */
