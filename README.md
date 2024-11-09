@@ -1,5 +1,14 @@
 # Getting Started with Create React App
 
+Technologies used:
+  -Html
+  -Css
+  -JavaScript
+  -React
+  -Bootstrap
+  -Vscode
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
